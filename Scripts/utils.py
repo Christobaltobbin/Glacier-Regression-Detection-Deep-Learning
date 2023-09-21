@@ -45,4 +45,8 @@ def resize_images(resize_value, no_of_channels, data_list, output_file_path):
         save_path = os.path.join(output_file_path, f'image_{i}.tif')
         tifffile.imwrite(save_path, img_norm)
 
+def plot_label(label_list_path, index_number):
+    img = tifffile.imread(label_list_path[index_number])
+    plt.imshow(img, cmap='Blues')
+
 
