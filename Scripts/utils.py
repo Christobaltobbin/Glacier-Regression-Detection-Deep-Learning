@@ -98,6 +98,15 @@ def standardize_data(data_files):
 
     return data_scaled
 
+# Function for resizing the labels and converting them to the array
+def label_list_to_array(label_list, image_resize_value, size):
+    label_total = np.zeros((len(label_list), image_resize_value, image_resize_value, size))
+    for i in range(len(label_list)):
+        img = tifffile.imread(label_list[i])
+        img_reshaped = resize(img, (image_resize_value, image_resize_value, 1))
+        label_total[i] = img_reshaped
+    return label_total
+
 # TRAINING THE DL MODEL
 def f1(y_true, y_pred):
     def recall(y_true, y_pred):
