@@ -16,3 +16,9 @@ For the deep learning algorithm to work proficiently we needed to have our datas
 
 ### U-Net Architecture
 To extract the border between the two classes, land ice and ocean, we use a classifier which takes the pixel value as well as the spatial context into account. We chose the basic structure from the originally developed U-Net from https://github.com/mmorphew/unet_remote_sensing & https://github.com/karolzak/keras-unet and modified the architecture for our purpose. Main modifications include :
+
+### Training
+
+## Results
+
+## Accuracy Assessment
