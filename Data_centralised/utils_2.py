@@ -116,7 +116,7 @@ def read_data_array(files_path, resize_value, no_of_channels):
         # Assign the loaded image to the array
         top_list_total[i] = image
     
-    return top_list_total
+    # return top_list_total
 
 # Function to Create arrays for resizing
 def create_arrays(Image_resize_value:int, Number_of_channels:int):
@@ -147,7 +147,7 @@ def resize_images(resize_value, no_of_channels, data_list, output_file_path):
         # Save the individual reshaped image as TIFF
         save_path = os.path.join(output_file_path, f'image_{i}.tif')
         tifffile.imwrite(save_path, img_norm)
-        # return top_train_total
+        return top_train_total
 
 def plot_label(label_list_path, index_number):
     img = tifffile.imread(label_list_path[index_number])
