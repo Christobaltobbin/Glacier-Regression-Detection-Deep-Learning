@@ -8,7 +8,12 @@ This project aims to use deep learning methods in detecting glacier regression. 
 To proficiently develop a glacier detection and extraction algorithm, it needs to detect and handle all kinds of different coastline morphologies such as huge ice shelves, ridged glacier tongues, and solid rock (). In all we selected eight different regions which was spread across Antartica and Greenland for our testing and training data.
 
 ## Data 
-The data used to train and test our deep learning algorithm was Sentinel 2 MSI Level 1C products scenes from the study regions.
+The data used to train and test our deep learning algorithm was Sentinel 2 MSI Level 1C products scenes from the study regions. Let us view one of the scenes and its binary mask.
+
+<p align="center">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/94d853fd-7f73-47d2-8580-841dafadbd11.png" align="left" width="385" height="250">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/a4914c84-0a10-47cd-bfb9-d11b5ba41b3c.png" align="right" width="385" height="250">
+</p>
 
 ## Method
 ### Training and Testing Data Processing
