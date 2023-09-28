@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt # for QC
 import glob # to gather up image filepath lists
 import rasterio
 from rasterio.plot import show
+from skimage import io
 from PIL import Image
 import scipy # same
 import imagecodecs
@@ -26,20 +27,24 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator, array_to_im
 from tensorflow.keras import backend as K
 # We need some additional layers already pre-defined in Keras
 
+# Function to create directories
+def create_dir(directory_path):
+    os.makedirs(directory_path, exist_ok=True)
+        
 # Function for Binary Mask 
 # Define the folder path
 def create_binary_mask(input_path, output_path):
-    
+        
     # List all the tiff files
     tif_files = [f for f in os.listdir(input_path) if f.endswith('.tif')]
 
-    # Set the number of rows and columns for subplots
-    num_rows = len(tif_files)
-    num_cols = 3  # Original image + Mask
+    # # Set the number of rows and columns for subplots
+    # num_rows = len(tif_files)
+    # num_cols = 3  # Original image + Mask
 
     # Create a figure with subplots
-    fig, axs = plt.subplots(num_rows, num_cols, figsize=(15, 5 * num_rows))
-
+    # fig, axs = plt.subplots(num_rows, num_cols, figsize=(15, 5 * num_rows))
+    
     # Loop through each file and process it
     for i, tif_file in enumerate(tif_files):
         tiff_image = rasterio.open(os.path.join(input_path, tif_file))
@@ -49,8 +54,8 @@ def create_binary_mask(input_path, output_path):
         # plt.imshow(array, cmap='gray')
         # plt.title(tif_file)  # Set the title to the file name
         # plt.show()
-        axs[i, 0].imshow(array, cmap='gray')
-        axs[i, 0].set_title("Original " + tif_file)
+        # axs[i, 0].imshow(array, cmap='gray')
+        # axs[i, 0].set_title("Original " + tif_file)
         
         masked = np.where(array <= 5000, 0, 1)
             
@@ -59,8 +64,8 @@ def create_binary_mask(input_path, output_path):
         # plt.imshow(masked, cmap='gray')
         # plt.title("Mask for " + tif_file)
         # plt.show()
-        axs[i, 1].imshow(masked, cmap='gray')
-        axs[i, 1].set_title("Mask for " + tif_file)
+        # axs[i, 1].imshow(masked, cmap='gray')
+        # axs[i, 1].set_title("Mask for " + tif_file)
         
         from rasterio.features import sieve
         sieved_msk = sieve(masked, size=800)
@@ -78,24 +83,40 @@ def create_binary_mask(input_path, output_path):
         mask_seived_path = os.path.join(output_path, mask_seived_name)
         with rasterio.open(mask_seived_path, 'w', **profile) as dst:
             dst.write(sieved_msk.astype(np.float32), 1)
+            
         # plt.figure()
         # plt.imshow(sieved_msk, cmap='gray')
         # plt.title("Sieved Mask for " + tif_file)
         # plt.show()
-        axs[i, 2].imshow(sieved_msk, cmap='gray')
-        axs[i, 2].set_title("Sieved Mask for " + tif_file)
-    # Adjust subplot spacing
-    plt.tight_layout()
+        # axs[i, 2].imshow(sieved_msk, cmap='gray')
+        # axs[i, 2].set_title("Sieved Mask for " + tif_file)
+    # # Adjust subplot spacing
+    # plt.tight_layout()
 
-    # Show the subplots
-    plt.show()
+    # # Show the subplots
+    # plt.show()
 
-# creating a function for reading the training data
+# Function for reading the scenes data
 def read_data(files_path):
     top_list = glob.glob(files_path)
     top_list = np.sort(top_list)
     # print(top_list)
     return top_list
+
+def read_data_array(files_path, resize_value, no_of_channels):
+    top_list = glob.glob(files_path)
+    top_list_total = np.zeros((len(top_list), resize_value, resize_value, no_of_channels))
+    
+    for i, file_path in enumerate(top_list):
+        # read and load image
+        with rasterio.open(file_path) as src:
+            image = src.read(1)
+            # Add a channel dimension to the image
+            image = image[:, :, np.newaxis]
+        # Assign the loaded image to the array
+        top_list_total[i] = image
+    
+    return top_list_total
 
 # Function to Create arrays for resizing
 def create_arrays(Image_resize_value:int, Number_of_channels:int):
@@ -114,25 +135,25 @@ def create_arrays(Image_resize_value:int, Number_of_channels:int):
 
 # Function to resize the images
 def resize_images(resize_value, no_of_channels, data_list, output_file_path):
-
+    top_train_total = np.zeros((len(data_list), resize_value, resize_value, no_of_channels))
     for i in range(len(data_list)):
         img0 = tifffile.imread(data_list[i])  # Read the image
-        img_reshaped = cv2.resize(img0, (resize_value, no_of_channels))  # Resize it
+        # img_reshaped = cv2.resize(img0, (resize_value, no_of_channels))  # Resize it
+        img_reshaped = resize(img0, (resize_value, resize_value, no_of_channels))  # Resize it
 
         # Local normalization & standardization of the image values
         img_norm = np.clip((img_reshaped - img_reshaped.mean()) / (0.5 * img_reshaped.std()), 0, 1)
-
+        top_train_total[i] = img_norm
         # Save the individual reshaped image as TIFF
         save_path = os.path.join(output_file_path, f'image_{i}.tif')
         tifffile.imwrite(save_path, img_norm)
+        return top_train_total
 
 def plot_label(label_list_path, index_number):
     img = tifffile.imread(label_list_path[index_number])
     plt.imshow(img, cmap='Blues')
 
-# Function to create directories
-def create_dir(directory_path):
-    os.makedirs(directory_path, exist_ok=True)
+
 
 # Function for creation of onehot labels
 def onehot_label(label_total, label_list, image_resize_value, size):
@@ -167,7 +188,7 @@ def label_list_to_array(label_list, image_resize_value, size):
     label_total = np.zeros((len(label_list), image_resize_value, image_resize_value, size))
     for i in range(len(label_list)):
         img = tifffile.imread(label_list[i])
-        img_reshaped = resize(img, (image_resize_value, image_resize_value, 1))
+        img_reshaped = resize(img, (image_resize_value, image_resize_value, size))
         label_total[i] = img_reshaped
     return label_total
 
