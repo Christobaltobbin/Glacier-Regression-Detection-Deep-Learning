@@ -12,7 +12,14 @@ The data used to train and test our deep learning algorithm was Sentinel 2 MSI L
 
 ## Method
 ### Training and Testing Data Processing
-For the deep learning algorithm to work proficiently we needed to have our dataset, binary masks and labels. Therefore we first wrote a script to create binary masks of the scenes we had downloaded. We then went ahead and also resized our scenes and masked scenes. We also generated labels from the masked scenes and resized them to be used in the algorithm. 
+For the deep learning algorithm to work proficiently we needed to have our dataset, binary masks and labels. Therefore we first wrote a script to create binary masks of the scenes we had downloaded. We then went ahead and also resized our scenes and masked scenes. We also generated labels from the masked scenes and resized them to be used in the algorithm. Let us view one of the scenes and its binary mask.
+
+<p align="center">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/94d853fd-7f73-47d2-8580-841dafadbd11.png" align="left" width="385" height="385">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/a4914c84-0a10-47cd-bfb9-d11b5ba41b3c.png" align="right" width="385" height="385">
+</p>
+
+
 
 ### U-Net Architecture
 To extract the border between the two classes, land ice and ocean, we use a classifier which takes the pixel value as well as the spatial context into account. We chose the basic structure from the originally developed U-Net from https://github.com/mmorphew/unet_remote_sensing & https://github.com/karolzak/keras-unet and modified the architecture for our purpose. Main modifications include :
