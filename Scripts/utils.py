@@ -116,7 +116,7 @@ def read_data_array(files_path, resize_value, no_of_channels):
         # Assign the loaded image to the array
         top_list_total[i] = image
     
-    # return top_list_total
+    return top_list_total
 
 # Function to Create arrays for resizing
 def create_arrays(Image_resize_value:int, Number_of_channels:int):
@@ -427,7 +427,7 @@ def plot_sample(X, y, preds, binary_preds, ix=None):
     ax[0,0].set_title('Remote Sensing Image')
 
     im1 = ax[0,1].imshow(y[ix,:,:,1].squeeze(), vmin=0, vmax=1)
-    ax[0,1].set_title('Lable Glacier')
+    ax[0,1].set_title('Label Glacier')
     fig.colorbar(im1, ax=ax[0,1],fraction=0.046, pad=0.04)
     
     im2 = ax[1,0].imshow(preds[ix,:,:,1].squeeze(), vmin=0, vmax=1)
