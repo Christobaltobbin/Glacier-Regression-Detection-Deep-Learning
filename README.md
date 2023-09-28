@@ -12,7 +12,7 @@ The data used to train and test our deep learning algorithm was Sentinel 2 MSI L
 
 ## Method
 ### Training and Testing Data Processing
-For the deep learning algorithm to work proficiently we needed to have our dataset, binary masks and labels. Therefore we first wrote a script to create binary masks of the scenes we had downloaded. We then went ahead and also resized our scenes and masked scenes. We also generated labels from the masked scenes and resized them to be used in the algorithm. Let us view one of the scenes and its binary mask.
+For the deep learning algorithm to work proficiently we were required to have a Dataset, Binary Masks and Labels. Therefore, we first wrote a script to create binary masks of the scenes which we downloaded. We then proceeded to resize our data collection and furher masking them. We also generated labels from the masked scenes and resized them to be used in the algorithm. Here is an example of one the scenes and its binary mask.
 
 <p align="center">
   <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/94d853fd-7f73-47d2-8580-841dafadbd11.png" align="left" width="385" height="385">
@@ -22,7 +22,7 @@ For the deep learning algorithm to work proficiently we needed to have our datas
 
 
 ### U-Net Architecture
-To extract the border between the two classes, land ice and ocean, we use a classifier which takes the pixel value as well as the spatial context into account. We chose the basic structure from the originally developed U-Net from https://github.com/mmorphew/unet_remote_sensing & https://github.com/karolzak/keras-unet and modified the architecture for our purpose. Main modifications include :
+To extract the border between the two classes, Land Ice and Ocean, we used a classifier which takes the pixel value as well as the spatial context into account. Furthermore, We chose the basic structure from the originally developed U-Net from https://github.com/mmorphew/unet_remote_sensing & https://github.com/karolzak/keras-unet and modified the architecture for our purpose. Main modifications include:
 
 ### Training
 
