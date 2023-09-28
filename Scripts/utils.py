@@ -116,7 +116,7 @@ def read_data_array(files_path, resize_value, no_of_channels):
         # Assign the loaded image to the array
         top_list_total[i] = image
     
-    return top_list_total
+    # return top_list_total
 
 # Function to Create arrays for resizing
 def create_arrays(Image_resize_value:int, Number_of_channels:int):
