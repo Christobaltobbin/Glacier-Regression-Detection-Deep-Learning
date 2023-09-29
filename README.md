@@ -30,7 +30,7 @@ The model was trained by us on 3 different epoch values, **2**, **10** and **20*
 <p align="center">
   <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/401a8583-5226-46fe-8725-08603b09b483.png" align="left" width="250" height="250">
   <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/5fca4542-0938-4aad-a541-5916d5e6962b.png" align="center" width="250" height="250">
-  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/73776bda-e75b-4676-aa0e-949eb4797558.png" align="right" width="250" height="250">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/5743bf84-6054-41d9-aee2-26577d1998e9.png" align="right" width="250" height="250">
 </p>
 
 ## Results
@@ -39,7 +39,7 @@ The predicted results of our three seperately trained models have very similar r
 <p align="center">
   <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/017ff44e-9b4b-4154-82af-fa975e9eaf21.png" align="left" width="250" height="250">
   <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/efe7abfb-13a4-4418-a6e1-f72e938d9f74.png" align="center" width="250" height="250">
-  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/882e5ed2-8146-4d5e-8c0b-61aca5ad25c3.png" align="right" width="250" height="250">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/e474de31-8888-418d-8ac1-91ed511f7015.png" align="right" width="250" height="250">
 </p>
 
 *Choosing different optimizers and different loss functions could potentially influence the accuracies of the model.*
@@ -48,6 +48,5 @@ The predicted results of our three seperately trained models have very similar r
 The following were the accuracies for the training models. First, the model was trained on **2 epochs**, which showed a test loss of **73%** and a test accuracy of **57%**. Then, The model trained on **10 epochs** gave a test loss of **72.6%** and a test accuracy of **60.9%**. Subsequently, the model trained on **20 epochs** generated a test loss of **70.1%** and a test accuracy of 61.2%. Comparing the three models, we conclude that the model trained on **20 epochs** has the highest accuracy. The precision score for all 3 models are **52.3%**, **51.3%** and **52.1%** respectively.
 
 ## Conclusion
- U-Net architecture can succesfully be used for detecting the changes in the glaciers over the years for various regions. Choosing different optimizers, loss functions and labelling techniques may influence the outcome.
-
+ U-Net architecture can succesfully be used for detecting the changes in the glaciers over the years for various regions. Choosing different optimizers, loss functions and labelling techniques may influence the outcome of the model.
  The accuracy for change detection may vary with quality and the quantity of the training data. Advanced techniques such as transfer learning may further improve the perfomance of the model. 
