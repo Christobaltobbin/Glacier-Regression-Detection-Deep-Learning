@@ -192,6 +192,46 @@ def label_list_to_array(label_list, image_resize_value, size):
         label_total[i] = img_reshaped
     return label_total
 
+
+
+
+def augment_data(x_training_data, y_training_data, val: int):
+
+    # Initialize empty lists to store augmented data for x_train
+    augmented_x_train = []
+
+    # Vertical Image Augmentation for x_train
+    for x_sample in x_training_data:
+        augmented_x_sample = np.flip(x_sample, axis=0)
+        augmented_x_train.append(augmented_x_sample)
+
+    # Horizontal Image Augmentation for x_train
+    for x_sample in x_training_data:
+        augmented_x_sample = np.flip(x_sample, axis=1)
+        augmented_x_train.append(augmented_x_sample)
+
+    # Horizontal Vertical Image Augmentation for x_train
+    for x_sample in x_training_data:
+        augmented_x_sample = np.flip(x_sample, axis=0)
+        augmented_x_sample = np.flip(augmented_x_sample, axis=1)
+        augmented_x_train.append(augmented_x_sample)
+
+    # Convert the list of augmented x_train samples to a NumPy array
+    augmented_x_train = np.array(augmented_x_train)
+
+    # Ensure that the number of samples in x_train and y_train matches
+    num_samples = min(augmented_x_train.shape[0], y_training_data.shape[0])
+    augmented_x_train = augmented_x_train[:num_samples]
+    y_train = y_training_data[:num_samples]
+
+    # Shuffle the data and select the first 99 samples
+    indices = np.random.permutation(num_samples)
+    x_train = augmented_x_train[indices[:val]]
+    y_train = y_train[indices[:val]]
+
+    return x_train, y_train
+
+
 # TRAINING THE DL MODEL
 def f1(y_true, y_pred):
     def recall(y_true, y_pred):
