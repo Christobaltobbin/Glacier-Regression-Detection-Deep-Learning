@@ -25,7 +25,6 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import regularizers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
 from tensorflow.keras import backend as K
-# We need some additional layers already pre-defined in Keras
 
 # Function to create directories
 def create_dir(directory_path):
@@ -100,7 +99,6 @@ def create_binary_mask(input_path, output_path):
 def read_data(files_path):
     top_list = glob.glob(files_path)
     top_list = np.sort(top_list)
-    # print(top_list)
     return top_list
 
 def read_data_array(files_path, resize_value, no_of_channels):
@@ -138,17 +136,17 @@ def resize_images(resize_value, no_of_channels, data_list, output_file_path):
     top_train_total = np.zeros((len(data_list), resize_value, resize_value, no_of_channels))
     for i in range(len(data_list)):
         img0 = tifffile.imread(data_list[i])  # Read the image
-        # img_reshaped = cv2.resize(img0, (resize_value, no_of_channels))  # Resize it
         img_reshaped = resize(img0, (resize_value, resize_value, no_of_channels))  # Resize it
 
         # Local normalization & standardization of the image values
         img_norm = np.clip((img_reshaped - img_reshaped.mean()) / (0.5 * img_reshaped.std()), 0, 1)
         top_train_total[i] = img_norm
+
         # Save the individual reshaped image as TIFF
         save_path = os.path.join(output_file_path, f'image_{i}.tif')
         tifffile.imwrite(save_path, img_norm)
-        # return top_train_total
 
+# Function for plotting the labels
 def plot_label(label_list_path, index_number):
     img = tifffile.imread(label_list_path[index_number])
     plt.imshow(img, cmap='Blues')
@@ -178,7 +176,7 @@ def standardize_data(data_files):
         data_mean = np.mean(data_files[:,:,:,i])
         data_std = np.std(data_files[:,:,:,i])
         data_scaled[:,:,:,i] = (data_files[:,:,:,i]-data_mean)/data_std
-        # Keep it in the positve range?
+        # Keep it in the positve range
         data_scaled[:,:,:,i] = np.clip((data_scaled[:,:,:,i]+1.0)/2.0,0,1)
 
     return data_scaled
