@@ -37,9 +37,9 @@ We trained our model on 3 epochs, 2, 10 and 20 so as to make a comparative analy
 The predicted results of our three seperately trained models have very similar results. From the results we have 6 images, the remote sensing image, green image, Near Infra-red image (NIR), image mask, ocean and ice binary mask images. The model was not able to predict the green and NIR images well due to the fact that we only used scenes with one band from our data collection to train the model. However the models were not able to predict the right image mask for the remote sensing image. This is possibly due to low accuracies of the trained models and also due to the fact that we trained the models on a single band image instead of multiband images. Another reason could be due to augmenting of the training data with fixed indices. Below are the predicted results of the trained models; 2 epochs model image (left), 10 epochs model image (central) and 20 epoch model image (right):
 
 <p align="center">
-  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/017ff44e-9b4b-4154-82af-fa975e9eaf21.png" align="left" width="350" height="350">
-  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/efe7abfb-13a4-4418-a6e1-f72e938d9f74.png" align="center" width="350" height="350">
-  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/e474de31-8888-418d-8ac1-91ed511f7015.png" align="right" width="300" height="350">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/017ff44e-9b4b-4154-82af-fa975e9eaf21.png" align="left" width="300" height="300">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/efe7abfb-13a4-4418-a6e1-f72e938d9f74.png" align="center" width="300" height="300">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/e474de31-8888-418d-8ac1-91ed511f7015.png" align="right" width="300" height="300">
 </p>
 
 Choosing different optimizers and different loss functions could potentially influence the accuracies of the model.
