@@ -34,8 +34,15 @@ We trained our model on 3 epochs, 2, 10 and 20 so as to make a comparative analy
 </p>
 
 ## Results
+The predicted results of our three seperately trained models have very similar results. From the results we have 6 images, the remote sensing image, green image, Near Infra-red image (NIR), image mask, ocean and ice binary mask images. The model was not able to predict the green and NIR images well due to the fact that we only used scenes with one band from our data collection to train the model. However the models were not able to predict the right image mask for the remote sensing image. This is possibly due to low accuracies of the trained models and also due to the fact that we trained the models on a single band image instead of multiband images. Another reason could be due to augmenting of the training data with fixed indices. Below are the predicted results of the trained models; 2 epochs model image (left), 10 epochs model image (central) and 20 epoch model image (right):
 
+<p align="center">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/017ff44e-9b4b-4154-82af-fa975e9eaf21.png" align="left" width="250" height="250">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/efe7abfb-13a4-4418-a6e1-f72e938d9f74.png" align="center" width="250" height="250">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/882e5ed2-8146-4d5e-8c0b-61aca5ad25c3.png" align="right" width="250" height="250">
+</p>
 
+Choosing differet obtimizers and different loss functions could potentially influence the accuracies of the model.
 
 ## Accuracy Assessment
 The following were the accuracies for the training models. Beginning with the model trained on 2 epochs, we had a test loss of 73% and a test accuracy of 57%. The model trained on 10 epochs also had a test loss of 72.6% and a test accuracy of 60.9%. Subsequently, the model trained on 20 epochs also had a test loss of 70.1% and a test accuracy of 61.2%. Comparing the three models, we can conclude that the model trained on 20 epochs has the highest accuracy. However, the precision score for all 3 models were 52.3%, 51.3% and 52.1% respectively.
