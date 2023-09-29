@@ -42,7 +42,11 @@ The predicted results of our three seperately trained models have very similar r
   <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/882e5ed2-8146-4d5e-8c0b-61aca5ad25c3.png" align="right" width="250" height="250">
 </p>
 
-Choosing differet obtimizers and different loss functions could potentially influence the accuracies of the model.
+Choosing different optimizers and different loss functions could potentially influence the accuracies of the model.
 
 ## Accuracy Assessment
-The following were the accuracies for the training models. Beginning with the model trained on 2 epochs, we had a test loss of 73% and a test accuracy of 57%. The model trained on 10 epochs also had a test loss of 72.6% and a test accuracy of 60.9%. Subsequently, the model trained on 20 epochs also had a test loss of 70.1% and a test accuracy of 61.2%. Comparing the three models, we can conclude that the model trained on 20 epochs has the highest accuracy. However, the precision score for all 3 models were 52.3%, 51.3% and 52.1% respectively.
+The following were the accuracies for the training models. Beginning with the model trained on **2 epochs**, we had a test loss of **73%** and a test accuracy of 57%. The model trained on **10 epochs** also had a test loss of **72.6%** and a test accuracy of 60.9%. Subsequently, the model trained on **20 epochs** also had a test loss of **70.1%** and a test accuracy of 61.2%. Comparing the three models, we can conclude that the model trained on **20 epochs** has the highest accuracy. However, the precision score for all 3 models were **52.3%**, **51.3%** and **52.1%** respectively.
+
+## Conclusion
+ U-Net architecture can succesfully be used for detecting the changes in the glaciers over the years for various regions. Choosing different optimizers, loss functions and labelling techniques may influence the outcome of the model.
+ The accuracy for change detection may vary with quality and the quantity of the training data. Advanced techniques such as transfer learning may further improve the perfomance of the model. 
