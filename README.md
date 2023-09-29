@@ -30,9 +30,9 @@ To extract the border between the two classes, Land Ice and Ocean, we used a cla
 We trained our model on 3 epochs, 2, 10 and 20 so as to make a comparative analysis on which number of epochs yielded the best model. Training the model on 2 epochs generated some interesting results. To begin with the graph indicated a decrease in log loss within the loss and validation loss while having a minimal increase in the categorical accuracies. The best model was at the lowest point on the validation loss as shown in the gpraph below (left). The model trained on 10 epochs had much higher categorical accuracies as compared to the model trained on 2 epochs, with the categorical accuracy being slightly better than the validation accuracy. Furthermore, there were undulations in the validation loss with the best model being close to the categorical accuracy as shown in the graph below (central).  There was a huge spike in the validation loss on the model trained on 20 epochs, nevertheless, the categorical accuracies had higher values than the models trained on 2 and 10 epochs. The 20 epoch model is on the right below.
 
 <p align="center">
-  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/401a8583-5226-46fe-8725-08603b09b483.png" align="left" width="200" height="200">
-  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/5fca4542-0938-4aad-a541-5916d5e6962b.png" align="center" width="200" height="200">
-  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/73776bda-e75b-4676-aa0e-949eb4797558.png" align="right" width="200" height="200">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/401a8583-5226-46fe-8725-08603b09b483.png" align="left" width="250" height="250">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/5fca4542-0938-4aad-a541-5916d5e6962b.png" align="center" width="250" height="250">
+  <img src="https://github.com/Christobaltobbin/Classification-Land_cover_Analysis/assets/116877317/73776bda-e75b-4676-aa0e-949eb4797558.png" align="right" width="250" height="250">
 </p>
 
 
