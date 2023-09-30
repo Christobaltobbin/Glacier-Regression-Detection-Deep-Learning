@@ -43,7 +43,7 @@ The predicted results of our three seperately trained models have very similar r
 *Choosing different optimizers and different loss functions could potentially influence the accuracies of the model.*
 
 ## Accuracy Assessment
-The following were the accuracies for the training models. First, the model was trained on **2 epochs**, which showed a test loss of **73%** and a test accuracy of **57%**. Then, The model trained on **10 epochs** gave a test loss of **72.6%** and a test accuracy of **60.9%**. Subsequently, the model trained on **20 epochs** generated a test loss of **70.1%** and a test accuracy of **61.2%**. Comparing the three models, we conclude that the model trained on **20 epochs** has the highest accuracy. The precision score for all 3 models are **52.3%**, **51.3%** and **52.1%** respectively.
+The following were the accuracies for the training models. First, the model was trained on **2 epochs**, which showed a test loss of **73%** and a test accuracy of **57%**. Then, The model trained on **10 epochs** gave a test loss of **72.6%** and a test accuracy of **60.9%**. Subsequently, the model trained on **20 epochs** generated a test loss of **71.2%** and a test accuracy of **63.5%**. Comparing the three models, we conclude that the model trained on **20 epochs** has the highest accuracy. The precision score for all 3 models are **52.3%**, **51.3%** and **53.6%** respectively.
 
 ## Conclusion
  U-Net architecture can succesfully be used for detecting the changes in the glaciers over the years for various regions. Choosing different optimizers, loss functions and labelling techniques may influence the outcome of the model. Furthermore, assigning more augmentations with different methods may also leverage the outcome of the architecture. 
