@@ -15,8 +15,8 @@ The data used to train and test our Deep Learning Algorithm was Sentinel-2 MSI L
 For the deep learning algorithm to work proficiently, we required a Dataset, Binary Masks and Labels. Firstly a script was written by us to create binary masks of the scenes which we downloaded. Afterwards, we resized and masked the data collection. Then,  labels were generated from the masked scenes and were resized to be used in the algorithm. Here is an example of one the scenes and its binary mask.
 
 <p align="center">
-  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/94d853fd-7f73-47d2-8580-841dafadbd11.png" align="left" width="385" height="385">
-  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/a4914c84-0a10-47cd-bfb9-d11b5ba41b3c.png" align="right" width="385" height="385">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/94d853fd-7f73-47d2-8580-841dafadbd11.png" align="left" width="390" height="390">
+  <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/a4914c84-0a10-47cd-bfb9-d11b5ba41b3c.png" align="right" width="390" height="390">
 </p>
 
 
