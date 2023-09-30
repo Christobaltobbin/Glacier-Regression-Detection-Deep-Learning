@@ -19,8 +19,6 @@ For the deep learning algorithm to work proficiently, we required a Dataset, Bin
   <img src="https://github.com/Christobaltobbin/Drought_Assessment/assets/116877317/a4914c84-0a10-47cd-bfb9-d11b5ba41b3c.png" align="right" width="390" height="390">
 </p>
 
-
-
 ### U-Net Architecture
 To extract the border between the two classes, Land Ice and Ocean, a classifier was used by us which takes the pixel value as well as the spatial context into the account. Furthermore, basic structure from the originally developed U-Net was chosen from https://github.com/mmorphew/unet_remote_sensing & https://github.com/karolzak/keras-unet and modified the architecture for our purpose.
 
